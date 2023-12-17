@@ -3,6 +3,7 @@ from random import randint
 
 #tạo lưới
 luoi=[0,1,2,3,4,5,6,7,8]
+win=''
 def inluoi():
     for i in range(0,9,3):
         print(luoi[i],'|',luoi[i+1],'|',luoi[i+2])
@@ -13,8 +14,9 @@ def trong():
     for i in range(9):
         if luoi[i]!='X' and luoi[i]!='O': #kiểm tra vị trí còn trống hay không
             return True
-#gameplay
-        
+
+
+#gameplay        
 def ktra_dong(chon,x1,x2,x3):
     if luoi[x1]==chon and luoi[x2]==chon and luoi[x3]==chon:
         return True
@@ -65,6 +67,9 @@ while trong():
         break
 
     if Ktra_all('O'):
-        win='Computer'
+        win='Máy'
         break
-print(win, 'Thắng')
+if win=='':
+    print('Hòa')
+else:
+    print(win, 'Thắng')
