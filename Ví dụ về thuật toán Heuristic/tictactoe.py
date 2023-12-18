@@ -10,6 +10,8 @@ def inluoi():
         print('---------')
 
 inluoi()
+
+#kiểm tra vị tri còn trống
 def trong():
     for i in range(9):
         if luoi[i]!='X' and luoi[i]!='O': #kiểm tra vị trí còn trống hay không
@@ -48,14 +50,14 @@ def Ktra_all(chon):
 
 
 while trong():
-    #nguoi_choi
+    #người chơi
     nguoi=int(input('Hãy chọn 1 ô trong [0...8]:'))
     if luoi[nguoi]=='X' or luoi[nguoi]=='O':
         print('ô đã bị chọn')
     else:
         luoi[nguoi]='X'
 
-    #may
+    #máy
     may=randint(0,8)
     if luoi[may]=='X' or luoi[may]=='O':
         pass
