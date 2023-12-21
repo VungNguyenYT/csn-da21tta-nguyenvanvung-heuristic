@@ -48,6 +48,7 @@ def Ktra_all(chon):
     return False
 
 #Thuật toán heuristic
+#Duyệt qua lần lượt các ô để tìm cơ hội thắng
 def heuristic_move():
     for i in range(0, 9, 3):
         if luoi[i] == luoi[i + 1] == 'O' and luoi[i + 2] == ' ':
@@ -85,12 +86,12 @@ def heuristic_move():
 
 while trong():
     # Người chơi
-    nguoi = int(input('Hãy chọn 1 ô trong [0...8]: '))
+    nguoi = int(input('Hãy chọn 1 ô trong [0...8]:'))
     if luoi[nguoi] == 'X' or luoi[nguoi] == 'O':
         print('Ô đã bị chọn')
     else:
         luoi[nguoi] = 'X'
-
+    
     inluoi()
 
     #Người chơi thắng
@@ -98,7 +99,7 @@ while trong():
         win = 'Bạn'
         break
 
-    #Game hòa
+    #Kiểm tra xem còn ô trống không, nếu không còn trò chơi kết thúc
     if not trong():
         print('Hòa')
         break
@@ -116,6 +117,7 @@ while trong():
         win = 'Máy'
         break
 
+#kiểm tra game hòa, in ra người chiến thắng
 if win == '':
     print('Hòa')
 else:
