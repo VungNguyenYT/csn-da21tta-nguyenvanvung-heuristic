@@ -47,7 +47,7 @@ def Ktra_all(chon):
         return True
     return False
 
-# Thuật toán heuristic
+#Thuật toán heuristic
 def heuristic_move():
     for i in range(0, 9, 3):
         if luoi[i] == luoi[i + 1] == 'O' and luoi[i + 2] == ' ':
