@@ -2,9 +2,10 @@ from operator import truediv
 from random import randint
 
 # Tạo lưới
-luoi = [' '] * 9  # Sử dụng ký tự trắng để thể hiện ô trống
+luoi = [' '] * 9  #Sử dụng ký tự trắng để thể hiện ô trống
 win = ''
 
+#In ra bàn cờ(lưới 3x3)
 def inluoi():
     for i in range(0, 9, 3):
         print(luoi[i], '|', luoi[i + 1], '|', luoi[i + 2])
@@ -19,7 +20,7 @@ def trong():
             return True
     return False
 
-# Kiểm tra dòng
+#Kiểm tra dòng
 def ktra_dong(chon, x1, x2, x3):
     return luoi[x1] == luoi[x2] == luoi[x3] == chon
 
@@ -47,8 +48,7 @@ def Ktra_all(chon):
         return True
     return False
 
-#Thuật toán heuristic
-#Duyệt qua lần lượt các ô để tìm cơ hội thắng
+#Thuật toán heuristic duyệt qua lần lượt các ô để tìm cơ hội thắng
 def heuristic_move():
     for i in range(0, 9, 3):
         if luoi[i] == luoi[i + 1] == 'O' and luoi[i + 2] == ' ':
@@ -80,7 +80,7 @@ def heuristic_move():
     elif luoi[4] == luoi[6] == 'O' and luoi[2] == ' ':
         return 2
 
-    # Nếu không có nước đi chiến thắng, chọn ngẫu nhiên
+    #Nếu không chọn được thì máy đi ngẫu nhiên
     empty_cells = [i for i in range(9) if luoi[i] == ' ']
     return randint(0, len(empty_cells) - 1)
 
@@ -106,7 +106,6 @@ while trong():
 
     #Máy thắng
     may = heuristic_move()
-    #luoi[may] = 'O'
     if luoi[may]=='X' or luoi[may]=='O':
         pass
     else:
