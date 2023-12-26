@@ -23,6 +23,8 @@ def inluoi():
         print(luoi[i], '|', luoi[i + 1], '|', luoi[i + 2])
         if i < 6:
             print('---------')
+    print(" ")
+    print(" Bạn là X | Máy là O")
 
 inluoi()
 
@@ -67,15 +69,15 @@ def Ktra_all(chon):
 
 #Thuật toán heuristic duyệt qua lần lượt các ô để tìm cơ hội thắng
 def heuristic_move():
-    for i in range(0, 9, 3):
+    for i in range(0, 9, 3): #Duyệt qua từng dòng ngang
         if luoi[i] == luoi[i + 1] == 'O' and luoi[i + 2] == ' ':
-            return i + 2
+            return i + 2 #Nếu 2 ô (phía trước[ O | O | _ ]) giống nhau và ô cạnh bên trống thì đánh vào ô cạnh bên 
         elif luoi[i] == luoi[i + 2] == 'O' and luoi[i + 1] == ' ':
-            return i + 1
+            return i + 1 #Nếu 2 ô (ngoài cùng[ O | _ | O ]) cùng nằm trên hàng và ô giữa trống thì đánh vào ô giữa
         elif luoi[i + 1] == luoi[i + 2] == 'O' and luoi[i] == ' ':
-            return i
+            return i     #Nếu 2 ô (phía sau  [ _ | O | O ]) giống nhau và ô cạnh bên trống thì đánh vào ô cạnh bên 
 
-    for i in range(3):
+    for i in range(3): #Duyệt qua từng cột dọc
         if luoi[i] == luoi[i + 3] == 'O' and luoi[i + 6] == ' ':
             return i + 6
         elif luoi[i] == luoi[i + 6] == 'O' and luoi[i + 3] == ' ':
@@ -108,7 +110,7 @@ while trong():
         print('Ô đã bị chọn')
     else:
         luoi[nguoi] = 'X'
-    inluoi()
+    #inluoi()
 
     #In ra người chơi thắng
     if Ktra_all('X'):
@@ -123,7 +125,7 @@ while trong():
 #************************************************
 
     # (Máy)
-
+    # may=heuristic_move()
     # if luoi[may]=='X' or luoi[may]=='O':
     #     pass
     # else:
