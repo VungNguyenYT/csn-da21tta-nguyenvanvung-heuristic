@@ -102,7 +102,7 @@ def heuristic_move():
     return randint(0, len(empty_cells) - 1)
 
 while trong():
-    #Người chơi
+    # (Người chơi)
     nguoi = int(input('Hãy chọn 1 ô trong [0...8]:'))
     if luoi[nguoi] == 'X' or luoi[nguoi] == 'O':
         print('Ô đã bị chọn')
@@ -120,13 +120,18 @@ while trong():
         print('Hòa')
         break
 
-    
-    #Máy
+#************************************************
+
+    # (Máy)
+
+    # if luoi[may]=='X' or luoi[may]=='O':
+    #     pass
+    # else:
+    #     luoi[may]='O'
+    # inluoi()
+
     may = heuristic_move()
-    if luoi[may]=='X' or luoi[may]=='O':
-        pass
-    else:
-        luoi[may]='O'
+    luoi[may] = 'O'
     inluoi()
 
     #In ra máy thắng
