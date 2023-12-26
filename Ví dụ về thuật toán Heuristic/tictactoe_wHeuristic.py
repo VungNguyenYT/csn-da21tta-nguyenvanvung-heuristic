@@ -1,3 +1,15 @@
+# Ý TƯỞNG
+#
+# - Trò chơi tic tac toe(cờ caro)
+#   + Dùng if else để kiểm tra các ô, nếu đã chọn thì bỏ qua
+#
+# - Cho máy tìm đường đi bằng thuật toán Heuristic
+#   + Duyệt qua các dòng ngang, các cột dọc và các đường chéo  
+#   + Nếu có 2 ô liên tiếp của máy và một ô trống kế bên thì chọn vào ô đó để chiến thắng
+#   + Nếu có 2 ô liên tiếp và một ô trống nằm trên đường thẳng(đối với đường chéo) thì chọn vào ô đó để chiến thắng
+#
+#****************************************************
+#******************* IN RA BÀN CỜ *******************
 from operator import truediv
 from random import randint
 
@@ -14,6 +26,9 @@ def inluoi():
 
 inluoi()
 
+
+#******************* GAMEPLAY *******************
+#kiểm tra vị trí có còn trống không
 def trong():
     for i in range(9):
         if luoi[i] == ' ':
@@ -21,30 +36,32 @@ def trong():
     return False
 
 #Kiểm tra dòng
-def ktra_dong(chon, x1, x2, x3):
-    return luoi[x1] == luoi[x2] == luoi[x3] == chon
+def ktra_dong(chon,x1,x2,x3):
+    if luoi[x1]==chon and luoi[x2]==chon and luoi[x3]==chon:
+        return True
+    return False
 
 def Ktra_all(chon):
     #Kiểm tra dòng ngang
-    if ktra_dong(chon,0,1,2)==True:
+    if ktra_dong(chon,0,1,2)==True: #Kiểm tra dòng 1
         return True
-    if ktra_dong(chon,3,4,5)==True:
+    if ktra_dong(chon,3,4,5)==True: #Kiểm tra dòng 2
         return True
-    if ktra_dong(chon,6,7,8)==True:
+    if ktra_dong(chon,6,7,8)==True: #Kiểm tra dòng 3
         return True
     
     #kiểm tra hàng dọc
-    if ktra_dong(chon,0,3,6)==True:
+    if ktra_dong(chon,0,3,6)==True: #Kiểm tra cột 1
         return True
-    if ktra_dong(chon,1,4,7)==True:
+    if ktra_dong(chon,1,4,7)==True: #Kiểm tra cột 2
         return True
-    if ktra_dong(chon,2,5,8)==True:
+    if ktra_dong(chon,2,5,8)==True: #Kiểm tra cột 3
         return True
     
     #kiểm tra 2 đường chéo
-    if ktra_dong(chon,0,4,8)==True:
+    if ktra_dong(chon,0,4,8)==True: #Kiểm tra đường chéo trái
         return True
-    if ktra_dong(chon,2,4,6)==True:
+    if ktra_dong(chon,2,4,6)==True: #Kiểm tra đường chéo phải
         return True
     return False
 
@@ -85,16 +102,15 @@ def heuristic_move():
     return randint(0, len(empty_cells) - 1)
 
 while trong():
-    # Người chơi
+    #Người chơi
     nguoi = int(input('Hãy chọn 1 ô trong [0...8]:'))
     if luoi[nguoi] == 'X' or luoi[nguoi] == 'O':
         print('Ô đã bị chọn')
     else:
         luoi[nguoi] = 'X'
-    
     inluoi()
 
-    #Người chơi thắng
+    #In ra người chơi thắng
     if Ktra_all('X'):
         win = 'Bạn'
         break
@@ -104,7 +120,8 @@ while trong():
         print('Hòa')
         break
 
-    #Máy thắng
+    
+    #Máy
     may = heuristic_move()
     if luoi[may]=='X' or luoi[may]=='O':
         pass
@@ -112,6 +129,7 @@ while trong():
         luoi[may]='O'
     inluoi()
 
+    #In ra máy thắng
     if Ktra_all('O'):
         win = 'Máy'
         break
