@@ -110,7 +110,7 @@ while trong():
         print('Ô đã bị chọn')
     else:
         luoi[nguoi] = 'X'
-    #inluoi()
+    inluoi()
 
     #In ra người chơi thắng
     if Ktra_all('X'):
