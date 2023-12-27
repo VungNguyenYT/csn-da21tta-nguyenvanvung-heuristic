@@ -23,8 +23,8 @@ def inluoi():
         print(luoi[i], '|', luoi[i + 1], '|', luoi[i + 2])
         if i < 6:
             print('---------')
-    print(" ")
-    print(" Bạn là X | Máy là O")
+    # print(" ")
+    # print(" Bạn là X | Máy là O")
 
 inluoi()
 
