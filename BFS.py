@@ -18,6 +18,7 @@ data['D'] = ['I', 'J']
 data['F'] = ['K', 'L', 'M']
 data['H'] = ['N', 'O']
 
+
 def equal(O, G):
     return O.name == G.name
 
@@ -45,6 +46,8 @@ def BFS(S = node('A'), G = node('M')):
             return
         O = open.pop(0)
         Closed.append(O)
+
+        print('Duyệt: ', O.name)
         if equal(O, G) == True:
             print('Tìm kiếm thành công')
             path(O)

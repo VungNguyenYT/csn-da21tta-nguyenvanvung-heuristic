@@ -45,6 +45,8 @@ def DFS(S = node('A'), G = node('M')):
             return
         O = open.pop(0)
         Closed.append(O)
+
+        print('Duyệt: ', O.name)
         if equal(O, G) == True:
             print('Tìm kiếm thành công')
             path(O)
@@ -58,7 +60,7 @@ def DFS(S = node('A'), G = node('M')):
             ok1 = checkInArray(tmp, open)
             ok2 = checkInArray(tmp, Closed)
             
-            #Nếu tmp không thuộc Open(O) và Close thì đưa vào cuối Open
+            #Nếu tmp không thuộc Open(O) và Close thì đưa vào đầu Open
             if not ok1 and not ok2:
                 open.insert(pos, tmp)
                 pos += 1
