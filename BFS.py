@@ -47,6 +47,7 @@ def BFS(S = node('A'), G = node('M')):
         Closed.append(O)
         if equal(O, G) == True:
             print('Tìm kiếm thành công')
+            path(O)
             return
         for x in data [O.name]:
             tmp = node(x)
