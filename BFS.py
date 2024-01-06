@@ -26,6 +26,13 @@ def checkInArray(tmp, open):
         if equal(x, tmp):
             return True
     return False
+def path (O):
+    print(O.name)
+    if O.par != None:
+        path(O.par)
+    else:
+        return
+
 
 #Thuật toán BFS
 def BFS(S = node('A'), G = node('M')):
@@ -52,4 +59,4 @@ def BFS(S = node('A'), G = node('M')):
             if not ok1 and not ok2:
                 open.append(tmp)
 
- 
+BFS()
