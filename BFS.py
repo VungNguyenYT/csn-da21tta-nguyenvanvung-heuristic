@@ -63,4 +63,4 @@ def BFS(S = node('A'), G = node('M')):
             if not ok1 and not ok2:
                 open.append(tmp)
 
-BFS()
+BFS(node('A'), node('M'))

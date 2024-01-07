@@ -64,4 +64,4 @@ def DFS(S = node('A'), G = node('M')):
             if not ok1 and not ok2:
                 open.insert(pos, tmp)
                 pos += 1
-DFS()
+DFS(node('A'), node('M'))
