@@ -24,6 +24,7 @@ class Node:
         self.par = par
         self.g = g
         self.h = h
+        
     def display(self):
         print(self.name, self.g, self.h)
 
