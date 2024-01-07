@@ -26,13 +26,13 @@ class Node:
     def display(self):
         print(self.name, self.h)
     
-    #equal
+    #less than
     def __lt__(self, other):
         if other == None:
             return False
         return self.h < other.h
     
-    #nhỏ hơn
+    #equal
     def __eq__(self, other):
         if other == None:
             return False
